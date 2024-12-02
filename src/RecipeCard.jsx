@@ -1,8 +1,9 @@
 import React from "react";
 
-const RecipeCard = ({ items, setShowRecipe }) => {
+const RecipeCard = ({ items, setShowRecipe, setSelectedRecipe }) => {
   const OpenRecipeViewer = () => {
     setShowRecipe(true);
+    setSelectedRecipe(items);
   };
   return (
     <div className="flex flex-col justify-center items-center gap-2 bg-white px-2 py-1 text-black rounded">
