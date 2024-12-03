@@ -200,7 +200,7 @@ const RecipeGallery = () => {
 
         {/* Search */}
 
-        <form class="max-w-md mx-auto">
+        <form class="min-w-[400px] mx-auto">
           <label
             for="default-search"
             class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
