@@ -1,9 +1,14 @@
 .scrollbar{
     scrollbar-width: none;
-    background: red;
     overflow: scroll;
 }
 html{
     scroll-behavior: smooth;
     scrollbar-width: none;
+}
+.background-ingredients{
+    opacity: 100%;
+    background-position: center no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
 }
