@@ -31,7 +31,7 @@ const IngredientsAndProcess = ({ item, closeModal }) => {
               {process}
             </div>
             <button
-              className=" fixed top-10 right-10 rounded-lg bg-red-600 hover:bg-red-400 active:bg-red-500 focus:outline-none focus:ring focus:ring-violet-300 text-white text-xl px-4 py-2 "
+              className="fixed top-10 right-10 rounded-lg bg-red-600 hover:bg-red-400 active:bg-red-500 focus:outline-none focus:ring focus:ring-violet-300 text-white text-xl px-4 py-2 "
               onClick={() => closeModal(false)}
             >
               🗙
