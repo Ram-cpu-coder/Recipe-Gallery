@@ -1,0 +1,9 @@
+.scrollbar{
+    scrollbar-width: none;
+    background: red;
+    overflow: scroll;
+}
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}

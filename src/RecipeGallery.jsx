@@ -2,112 +2,191 @@ import { useState } from "react";
 import React from "react";
 import RecipeCard from "./RecipeCard";
 import RecipeViewer from "./RecipeViewer";
+import "./Scrollbar.css";
 
 const recipes = [
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Spaghetti Carbonara",
     ingredients: [
       "Spaghetti",
-      "Garlic",
-      "Olive oil",
-      "Chili flakes",
-      "Parsley",
+      "Eggs",
+      "Pancetta",
+      "Parmesan cheese",
+      "Black pepper",
       "Salt",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
-    ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Cook the spaghetti in salted boiling water until al dente. In a bowl, whisk eggs and Parmesan cheese together. Cook pancetta in a pan until crispy. Combine the hot spaghetti with pancetta, remove from heat, and quickly mix in the egg mixture to create a creamy sauce. Season with black pepper and serve immediately.",
+    image: "./assets/spa.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Pork Ragu",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Pork shoulder or pork butt",
+      "Olive oil",
+      "Onion",
+      "Garlic",
+      "Carrot",
+      "Celery",
+      "Crushed tomatoes",
+      "Red wine",
+      "Chicken or vegetable broth",
+      "Tomato paste",
+      "Dried oregano",
+      "Dried thyme",
+      "Red pepper flakes (optional)",
+      "Salt",
+      "Pepper",
+      "Fresh parsley",
+      "Grated Parmesan cheese",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
+    process:
+      "Brown the pork in batches in olive oil until golden. Remove and set aside. In the same pot, sauté onion, carrot, and celery until softened. Add garlic and cook for another minute. Pour in red wine, scrape up browned bits, and reduce. Stir in crushed tomatoes, tomato paste, oregano, thyme, red pepper flakes, salt, and pepper. Return pork to the pot with broth and simmer for 2-3 hours until tender. Shred pork and return it to the sauce. Serve over pasta, polenta, or mashed potatoes, garnished with parsley and Parmesan.",
+    image: "./assets/pork-ragu.png",
+  },
+
+  {
+    name: "Chicken Curry",
+    ingredients: [
+      "Chicken",
+      "Curry powder",
+      "Coconut milk",
+      "Onion",
+      "Garlic",
+      "Ginger",
+      "Tomatoes",
+      "Coriander",
+      "Salt",
+      "Oil",
     ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Heat oil in a pan and sauté chopped onions, garlic, and ginger until fragrant. Add curry powder and cook for a minute. Add chicken pieces and cook until browned. Stir in chopped tomatoes and coconut milk, then simmer until the chicken is cooked through and the sauce thickens. Garnish with fresh coriander and serve with rice.",
+    image: "./assets/chicken-curry.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Vegetable Stir-fry",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Broccoli",
+      "Carrots",
+      "Bell peppers",
+      "Soy sauce",
+      "Garlic",
+      "Ginger",
+      "Sesame oil",
+      "Cornstarch",
+      "Salt",
+      "Pepper",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
-    ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Heat sesame oil in a wok and sauté minced garlic and ginger. Add chopped vegetables and stir-fry on high heat. Mix soy sauce and cornstarch with water to make a sauce, then pour it into the wok. Stir until the vegetables are coated and cooked but still crisp. Season with salt and pepper to taste, then serve.",
+    image: "./assets/vegetable-fried.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Pancakes",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Flour",
+      "Milk",
+      "Eggs",
+      "Sugar",
+      "Baking powder",
+      "Butter",
+      "Salt",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
-    ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "In a bowl, mix flour, sugar, baking powder, and salt. In another bowl, whisk milk, eggs, and melted butter. Combine the wet and dry ingredients to form a smooth batter. Heat a non-stick pan and pour batter to form pancakes. Cook until bubbles form on the surface, then flip and cook until golden brown. Serve with syrup or toppings of your choice.",
+    image: "./assets/pancakes.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Beef Tacos",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Ground beef",
+      "Taco seasoning",
+      "Taco shells",
+      "Lettuce",
+      "Cheddar cheese",
+      "Tomatoes",
+      "Sour cream",
+      "Salsa",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
-    ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Cook ground beef in a pan until browned, then mix in taco seasoning with a little water and simmer until thickened. Fill taco shells with beef, shredded lettuce, diced tomatoes, grated cheese, and top with sour cream and salsa. Serve immediately.",
+    image: "./assets/beef-tacos.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Caesar Salad",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Romaine lettuce",
+      "Croutons",
+      "Parmesan cheese",
+      "Caesar dressing",
+      "Chicken (optional)",
+      "Lemon juice",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
-    ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Chop romaine lettuce and mix it in a bowl with croutons and grated Parmesan cheese. Drizzle Caesar dressing over the salad and toss well. Add grilled chicken slices if desired, squeeze lemon juice on top, and serve.",
+    image: "./assets/caesar-salad.png",
   },
   {
-    dish: "Spaghetti Aglio e Olio",
+    name: "Vegetable Soup",
     ingredients: [
-      " Spaghetti",
-      " Garlic",
-      " Olive oil",
-      " Chili flakes",
-      " Parsley",
-      " Salt",
+      "Carrots",
+      "Celery",
+      "Potatoes",
+      "Tomatoes",
+      "Vegetable broth",
+      "Onions",
+      "Garlic",
+      "Salt",
+      "Pepper",
+      "Parsley",
     ],
-    about: [
-      "Spaghetti is one of the most well-known and widely consumed types of pasta. It is a long, thin, cylindrical noodle made from durum wheat semolina or flour. ",
+    process:
+      "Heat oil in a pot and sauté onions and garlic until softened. Add chopped carrots, celery, potatoes, and tomatoes, then pour in vegetable broth. Simmer until vegetables are tender, season with salt and pepper, and garnish with chopped parsley before serving.",
+    image: "./assets/vegetable-soup.png",
+  },
+  {
+    name: "Margherita Pizza",
+    ingredients: [
+      "Pizza dough",
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Fresh basil",
+      "Olive oil",
+      "Salt",
     ],
-    image: "./src/assets/spaghetti.jpg",
+    process:
+      "Roll out pizza dough and spread a thin layer of tomato sauce over it. Top with slices of mozzarella cheese and fresh basil leaves. Drizzle with olive oil and sprinkle with salt. Bake in a preheated oven at 220°C (425°F) until the crust is golden and the cheese is melted.",
+    image: "./assets/margherita.png",
+  },
+  {
+    name: "Grilled Salmon",
+    ingredients: [
+      "Salmon fillets",
+      "Lemon",
+      "Olive oil",
+      "Garlic",
+      "Parsley",
+      "Salt",
+      "Pepper",
+    ],
+    process:
+      "Brush salmon fillets with olive oil, minced garlic, salt, and pepper. Grill the fillets on medium heat for about 4-5 minutes on each side. Squeeze fresh lemon juice over the salmon, garnish with chopped parsley, and serve.",
+    image: "./assets/grilled-salmon.png",
+  },
+  {
+    name: "Fruit Smoothie",
+    ingredients: [
+      "Banana",
+      "Strawberries",
+      "Blueberries",
+      "Yogurt",
+      "Honey",
+      "Milk",
+      "Ice cubes",
+    ],
+    process:
+      "Combine banana, strawberries, blueberries, yogurt, honey, milk, and ice cubes in a blender. Blend until smooth, pour into a glass, and serve immediately.",
+    image: "./assets/fruit-smoothie.png",
   },
 ];
 
@@ -130,7 +209,7 @@ const RecipeGallery = () => {
           })}
         </div>
         {showRecipe ? (
-          <RecipeViewer {...selectedRecipe} closeModal={setShowRecipe} />
+          <RecipeViewer item={selectedRecipe} closeModal={setShowRecipe} />
         ) : (
           ""
         )}
